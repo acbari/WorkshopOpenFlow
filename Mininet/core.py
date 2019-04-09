@@ -49,7 +49,7 @@ if '__main__' == __name__:
 	c0.start()
 	for i in range(1,9):
 		s[i].start([c0])
-		s[i].cmd( 'ovs-vsctl set Bridge s1 protocols=OpenFlow13')
+		s[i].cmd( 'ovs-vsctl set Bridge s'+str(i)+' protocols=OpenFlow13')
 	
 	CLI(net)
 	net.stop()
