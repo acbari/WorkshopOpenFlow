@@ -1,3 +1,5 @@
+#redis server: sudo apt-get install redis-server
+#python redis: sudo pip install redis
 from operator import attrgetter
 import redis, time
 from ryu.app import simple_switch_13
