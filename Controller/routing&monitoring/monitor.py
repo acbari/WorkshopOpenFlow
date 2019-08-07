@@ -1,5 +1,7 @@
 #redis server: sudo apt-get install redis-server
 #python redis: sudo pip install redis
+#topology: sudo mn --switch=ovs,protocols=OpenFlow13 --controller=remote
+
 from operator import attrgetter
 import redis, time
 from ryu.app import simple_switch_13
