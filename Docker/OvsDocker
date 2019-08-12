@@ -1,0 +1,29 @@
+#Download ovsdocker
+cd /usr/bin
+wget https://raw.githubusercontent.com/openvswitch/ovs/master/utilities/ovs-docker
+chmod a+rwx ovs-docker
+
+#Ref: https://developer.ibm.com/recipes/tutorials/using-ovs-bridge-for-docker-networking/
+#Ref: http://containertutorials.com/network/ovs_docker.html
+
+#create images from Dockerfile
+sudo docker build -t helloweb .
+
+#run container from an image
+sudo docker run --rm -dit --network none --name web1 helloweb
+sudo docker run --rm -dit --network none --name web2 helloweb
+
+#link container to ovs switch
+sudo ovs-docker add-port csw eth0 web1 --ipaddress=10.0.190.1/24
+sudo ovs-docker add-port csw eth0 web2 --ipaddress=10.0.190.3/24
+sudo ovs-docker add-port csw eth1 firefox --ipaddress=10.0.190.2/24
+
+sudo docker run --name=firefox -ti --rm \
+       -e DISPLAY=$DISPLAY \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       ffox
+
+sudo ovs-docker add-port ovs-br1 eth0 firefox --ipaddress=192.168.1.1/16 --gateway=192.168.0.1
+
+ryu-manager ryu_simplehub.py
+sudo ovs-vsctl set-controller csw tcp:127.0.0.1:6653
