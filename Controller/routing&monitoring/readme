@@ -1,1 +1,13 @@
 Multihop packet routing using OpenFlow
+
+Live packet monitor:
+- GUI
+  - pktmonitor.py
+  - (library, called by pktmonitor) pylive.py
+- Mininet
+  sudo mn --switch=ovs,protocols=OpenFlow13 --controller=remote
+- Controller
+  monitorv2.py
+- Testing
+  h1 ping h2
+- VM: modul workshop
