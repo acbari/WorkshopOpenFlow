@@ -1,7 +1,9 @@
-Multihop packet routing using OpenFlow
+Monitoring
 
 Live packet monitor:
+- VM: modul workshop
 - GUI
+  python pktmonitor.py <record> <number>
   - pktmonitor.py
   - (library, called by pktmonitor) pylive.py
 - Mininet
@@ -10,4 +12,3 @@ Live packet monitor:
   monitorv2.py
 - Testing
   h1 ping h2
-- VM: modul workshop
