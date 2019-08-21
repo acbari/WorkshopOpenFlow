@@ -18,7 +18,7 @@ while True:
 	yval2 = []
 	xval = []
 	maxlist = rd.llen(argval)
-	if maxlist > size+1::
+	if maxlist > size+1:
 		j = 0
 		for i in range(maxlist-(size+1),maxlist):
 			strval = rd.lindex(argval,i)
