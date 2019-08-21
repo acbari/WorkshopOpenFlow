@@ -10,16 +10,22 @@ size = 100
 x_vec = np.linspace(0,1,size+1)[0:-1]
 y_vec = np.random.randn(len(x_vec))
 line1 = []
-
+data = {}
 while True:
 	yval = []
 	xval = []
 	maxlist = rd.llen(argval)
-	for i in range(maxlist-10,maxlist):
-		strval = rd.lindex(argval,i)
-		print strval
-		yval.append(int( strval.split(",")[prmval] ))
-		xval.append(i)
+	if maxlist > 11:
+		j = 0
+		for i in range(maxlist-11,maxlist):
+			strval = rd.lindex(argval,i)
+			print strval
+			datastr = strval.split(",")
+			data[j] = int( datastr[prmval] )
+			if j > 0:
+				yval.append(data[j] - data[j-1])
+				xval.append(float( datastr[0] ))
+			j+=1
 	#rand_val = np.random.randn(1)
 	#y_vec[-1] = rand_val
 	x_vec = np.array(xval)
