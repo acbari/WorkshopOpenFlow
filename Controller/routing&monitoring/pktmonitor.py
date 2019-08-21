@@ -20,7 +20,7 @@ while True:
 	maxlist = rd.llen(argval)
 	if maxlist > 11:
 		j = 0
-		for i in range(maxlist-11,maxlist):
+		for i in range(maxlist-(size+1),maxlist):
 			strval = rd.lindex(argval,i)
 			print strval
 			datastr = strval.split(",")
@@ -28,7 +28,7 @@ while True:
 			if j > 0:
 				yval.append(data[j])
 				yval2.append(data[j] - data[j-1])
-				xval.append((5*j)-50)
+				xval.append((5*j)-size*5)
 			j+=1
 	#rand_val = np.random.randn(1)
 	#y_vec[-1] = rand_val
