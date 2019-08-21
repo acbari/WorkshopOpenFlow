@@ -4,8 +4,12 @@ Live packet monitor:
 - VM: modul workshop
 - GUI
   python pktmonitor.py <record> <number>
+  e.g.: python pktmonitor.py sw1-1 1
+  #display port statistic of switch1 port 1 for transmitted packet (1: tx pkt)
+  #port arguments: 1,2,3,4,5,6: tx pkt, tx byte, tx err, rx pkt, rx byte, rx err
+  #flow arguments: 1,2: match pkt, match byte
   - pktmonitor.py
-  - (library, called by pktmonitor) pylive.py
+  - (library, called by pktmonitor) pylive.py, pylive2.py
 - Mininet
   sudo mn --switch=ovs,protocols=OpenFlow13 --controller=remote
 - Controller
