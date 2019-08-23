@@ -21,7 +21,7 @@ def getData(_argval, _prmval, _size):
 		j = 0
 		for i in range(maxlist-(dtsize+1),maxlist):
 			strval = rd.lindex(argval,i)
-			print strval
+			#print strval
 			datastr = strval.split(",")
 			data[j] = int( datastr[prmval] )
 			if j > 0:
@@ -32,7 +32,8 @@ def getData(_argval, _prmval, _size):
 	return xval, yval, yval2
 
 swinfo = sys.argv[1].split("-")
-fig = plt.figure(num="switch "+swinfo[0]+" match: inport="+swinfo[1] +", eth_dst="+swinfo[2])ax1 = fig.add_subplot(2,2,1)
+fig = plt.figure(num="switch "+swinfo[0]+" match: inport="+swinfo[1] +", eth_dst="+swinfo[2])
+ax1 = fig.add_subplot(2,2,1)
 ax2 = fig.add_subplot(2,2,2)
 ax3 = fig.add_subplot(2,2,3)
 ax4 = fig.add_subplot(2,2,4)
